@@ -327,6 +327,26 @@ app.get('/api/jobs/:jobId', async (req, res) => {
 });
 
 
+// GET endpoint to fetch table sum data to display in table at Frontend.
+app.get('/api/GetJobss', async (req, res) => {
+    try {
+        const pool = await sql.connect(dbConfig);
+
+        const result = await pool.request().query(`
+            SELECT JOBID, JOBTITLE, COMPANY, LOCATION, POSTEDDATE
+            FROM tblJob
+        `);
+
+        console.log('GetJobss fetched successfully:', result.recordset);
+
+        res.status(200).json(result.recordset);
+    } catch (error) {
+        console.error('Error fetching GetJobss:', error);
+        res.status(500).json({ message: 'Error fetching GetJobss', error });
+    }
+});
+
+
 
 // Start the server
 app.listen(PORT, () => {
