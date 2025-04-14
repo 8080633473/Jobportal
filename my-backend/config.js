@@ -24,7 +24,7 @@ require("dotenv").config();
 const mysql = require("mysql2");
 
 // Railway-provided MySQL connection string
-const urlDB = 'mysql://root:tIEeRvXERPzljPMJZBTwRoHftByZrMZR@mysql.railway.internal:3306/railway';
+const urlDB = 'mysql://root:OrbLQQfIBIBEobOVpVorqFSVGlFdeqsY@mysql.railway.internal:3306/railway';
 
 // Create connection
 const connection = mysql.createConnection(urlDB);
